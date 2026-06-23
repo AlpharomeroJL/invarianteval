@@ -11,6 +11,12 @@ license = { text = "MIT" }
 requires-python = ">=3.11"
 authors = [{ name = "Josef D. Long" }]
 keywords = ["eval", "llm", "safety", "invariants", "provenance", "ci"]
+
+[project.urls]
+Homepage = "https://github.com/AlpharomeroJL/invarianteval"
+Repository = "https://github.com/AlpharomeroJL/invarianteval"
+Documentation = "https://github.com/AlpharomeroJL/invarianteval#readme"
+Issues = "https://github.com/AlpharomeroJL/invarianteval/issues"
 dependencies = [
   "pydantic>=2.0",
   "typer>=0.12",
