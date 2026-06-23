@@ -1,0 +1,13 @@
+{
+  "suite_name": "fire-inspection-extraction",
+  "metrics": {
+    "total_cases": 5,
+    "passed_cases": 5,
+    "invariant_pass_rate": 1.0,
+    "deterministic_pass_rate": 1.0,
+    "judge_score_mean": null,
+    "cost_per_task_usd": 0.0,
+    "latency_p95_ms": 890.0,
+    "invariant_failures": 0
+  }
+}

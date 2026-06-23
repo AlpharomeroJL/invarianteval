@@ -1,0 +1,19 @@
+{
+  "model_parsed": {
+    "panel_model": "DEF-200",
+    "notes": "Battery low on secondary panel."
+  },
+  "raw": "{\"panel_model\": \"DEF-200\"}",
+  "final_output": {
+    "panel_model": "DEF-200",
+    "device_status": "needs_service",
+    "notes": "Battery low on secondary panel."
+  },
+  "human_confirmed": {},
+  "model": "qwen2.5:7b",
+  "provider": "fixture",
+  "input_tokens": 95,
+  "output_tokens": 30,
+  "latency_ms": 720,
+  "cost_usd": 0.0
+}

@@ -1,0 +1,8 @@
+SYNTHETIC FIRE PANEL INSPECTION RECORD #FP-2026-003
+Location: 55 Harbor View, Bay City
+Inspector: R. Jones (Badge SYN-1102)
+
+Panel: Brand Gamma model GHI-300
+Device A (ID 201): model family ZQ-400
+Device B (ID 202): model family ZQ-400
+Device status (inspector verified): operational

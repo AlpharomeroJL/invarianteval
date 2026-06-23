@@ -1,0 +1,29 @@
+{
+  "model_parsed": {
+    "panel_model": "ABC-100",
+    "pass_fail_result": "pass",
+    "devices": [
+      { "device_id": "101", "model_family": "XF-200" },
+      { "device_id": "102", "model_family": "XF-200" }
+    ],
+    "notes": "Routine quarterly check."
+  },
+  "raw": "{\"panel_model\": \"ABC-100\", \"pass_fail_result\": \"pass\"}",
+  "final_output": {
+    "panel_model": "ABC-100",
+    "device_status": "operational",
+    "pass_fail_result": "pass",
+    "devices": [
+      { "device_id": "101", "model_family": "XF-200" },
+      { "device_id": "102", "model_family": "XF-200" }
+    ],
+    "notes": "Routine quarterly check."
+  },
+  "human_confirmed": {},
+  "model": "qwen2.5:7b",
+  "provider": "fixture",
+  "input_tokens": 120,
+  "output_tokens": 52,
+  "latency_ms": 910,
+  "cost_usd": 0.0
+}

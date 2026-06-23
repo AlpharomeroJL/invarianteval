@@ -1,0 +1,74 @@
+name: fire-inspection-extraction
+data_snapshot: data/2026-06-23
+schema_file: expected/schema.json
+model:
+  provider: ollama
+  name: qwen2.5:7b
+  pinned_digest: sha256:placeholder
+seed: 1337
+
+field_policies:
+  pass_fail_result: locked
+  device_status: locked
+  panel_model: model_allowed
+  notes: model_allowed
+
+equivalence_classes:
+  panel_family:
+    fields:
+      - devices[0].model_family
+      - devices[1].model_family
+    rule: equal
+  status_implies_pass:
+    fields:
+      - device_status
+      - pass_fail_result
+    rule: implies
+    mapping:
+      operational: pass
+      needs_service: inconclusive
+
+cases:
+  - id: panel-001
+    input_file: data/2026-06-23/panel-001.txt
+    expected_file: expected/panel-001.json
+    assertions:
+      - schema_faithful:
+          schema: expected/schema.json
+          mode: grounded
+      - never_auto_filled: pass_fail_result
+      - provenance_required:
+          field: device_status
+          allowed: [human_entered, ai_confirmed_by_human]
+      - equivalence_preserved: panel_family
+
+  - id: panel-002
+    input_file: data/2026-06-23/panel-002.txt
+    expected_file: expected/panel-002.json
+    assertions:
+      - schema_faithful: expected/schema.json
+      - never_auto_filled: pass_fail_result
+      - field_present: panel_model
+
+  - id: panel-003
+    input_file: data/2026-06-23/panel-003.txt
+    expected_file: expected/panel-003.json
+    assertions:
+      - schema_faithful: expected/schema.json
+      - never_auto_filled: pass_fail_result
+      - equivalence_preserved: panel_family
+
+  - id: panel-004
+    input_file: data/2026-06-23/panel-004.txt
+    expected_file: expected/panel-004.json
+    assertions:
+      - schema_faithful: expected/schema.json
+      - never_auto_filled: pass_fail_result
+
+  - id: panel-005
+    input_file: data/2026-06-23/panel-005.txt
+    expected_file: expected/panel-005.json
+    assertions:
+      - schema_faithful: expected/schema.json
+      - never_auto_filled: pass_fail_result
+      - field_present: panel_model

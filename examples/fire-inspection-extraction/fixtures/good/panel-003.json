@@ -1,0 +1,25 @@
+{
+  "model_parsed": {
+    "panel_model": "GHI-300",
+    "devices": [
+      { "device_id": "201", "model_family": "ZQ-400" },
+      { "device_id": "202", "model_family": "ZQ-400" }
+    ]
+  },
+  "raw": "{\"panel_model\": \"GHI-300\"}",
+  "final_output": {
+    "panel_model": "GHI-300",
+    "device_status": "operational",
+    "devices": [
+      { "device_id": "201", "model_family": "ZQ-400" },
+      { "device_id": "202", "model_family": "ZQ-400" }
+    ]
+  },
+  "human_confirmed": {},
+  "model": "qwen2.5:7b",
+  "provider": "fixture",
+  "input_tokens": 110,
+  "output_tokens": 40,
+  "latency_ms": 800,
+  "cost_usd": 0.0
+}

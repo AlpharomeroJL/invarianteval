@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0f1419;
+  color: #e7ecf3;
+}
+
+.layout nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: #1a2332;
+  border-bottom: 1px solid #2a3544;
+}
+
+.layout nav a {
+  color: #9db4d0;
+  text-decoration: none;
+}
+
+.layout nav a:hover {
+  color: #fff;
+}
+
+main {
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #1a2332;
+  border: 1px solid #2a3544;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid #2a3544;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.fail {
+  color: #ff6b6b;
+}
+
+.pass {
+  color: #51cf66;
+}
+
+textarea {
+  width: 100%;
+  min-height: 320px;
+  font-family: ui-monospace, monospace;
+  background: #0f1419;
+  color: #e7ecf3;
+  border: 1px solid #2a3544;
+  border-radius: 4px;
+  padding: 0.75rem;
+}
+
+button {
+  background: #3d5a80;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #2a3544;
+  background: #0f1419;
+  color: #e7ecf3;
+}

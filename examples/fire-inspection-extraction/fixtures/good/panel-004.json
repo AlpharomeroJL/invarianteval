@@ -1,0 +1,19 @@
+{
+  "model_parsed": {
+    "panel_model": "JKL-400",
+    "notes": "All zones tested."
+  },
+  "raw": "{\"panel_model\": \"JKL-400\"}",
+  "final_output": {
+    "panel_model": "JKL-400",
+    "device_status": "operational",
+    "notes": "All zones tested."
+  },
+  "human_confirmed": {},
+  "model": "qwen2.5:7b",
+  "provider": "fixture",
+  "input_tokens": 88,
+  "output_tokens": 28,
+  "latency_ms": 650,
+  "cost_usd": 0.0
+}

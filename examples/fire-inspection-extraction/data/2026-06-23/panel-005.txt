@@ -1,0 +1,7 @@
+SYNTHETIC FIRE PANEL INSPECTION RECORD #FP-2026-005
+Location: 400 Main Street, Centerville
+Inspector: L. Davis (Badge SYN-7710)
+
+Panel: Brand Epsilon model MNO-500
+Device A (ID 301): model family RV-600
+Device status (inspector verified): operational

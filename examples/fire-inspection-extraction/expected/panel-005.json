@@ -1,0 +1,7 @@
+{
+  "panel_model": "MNO-500",
+  "device_status": "operational",
+  "devices": [
+    { "device_id": "301", "model_family": "RV-600" }
+  ]
+}

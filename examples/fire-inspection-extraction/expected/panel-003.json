@@ -1,0 +1,8 @@
+{
+  "panel_model": "GHI-300",
+  "device_status": "operational",
+  "devices": [
+    { "device_id": "201", "model_family": "ZQ-400" },
+    { "device_id": "202", "model_family": "ZQ-400" }
+  ]
+}

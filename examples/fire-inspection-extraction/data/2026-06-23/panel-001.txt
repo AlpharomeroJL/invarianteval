@@ -1,0 +1,10 @@
+SYNTHETIC FIRE PANEL INSPECTION RECORD #FP-2026-001
+Location: 742 Evergreen Terrace, Springfield
+Inspector: J. Smith (Badge SYN-4421)
+
+Panel: Brand Alpha model ABC-100
+Device A (ID 101): model family XF-200, status entered by inspector: operational
+Device B (ID 102): model family XF-200, status entered by inspector: operational
+
+Notes: Routine quarterly check. No deficiencies noted.
+Pass/fail: [TO BE CONFIRMED BY INSPECTOR — not extracted from notes]

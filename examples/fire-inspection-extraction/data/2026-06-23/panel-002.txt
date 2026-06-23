@@ -1,0 +1,8 @@
+SYNTHETIC FIRE PANEL INSPECTION RECORD #FP-2026-002
+Location: 123 Oak Lane, Rivertown
+Inspector: M. Chen (Badge SYN-8832)
+
+Panel: Brand Beta model DEF-200
+Device status (inspector verified): needs_service
+
+Notes: Battery low on secondary panel.

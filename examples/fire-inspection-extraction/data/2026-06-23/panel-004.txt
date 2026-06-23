@@ -1,0 +1,7 @@
+SYNTHETIC FIRE PANEL INSPECTION RECORD #FP-2026-004
+Location: 9 Pine Court, Hill Valley
+Inspector: A. Brown (Badge SYN-5590)
+
+Panel: Brand Delta model JKL-400
+Device status (inspector verified): operational
+Notes: All zones tested.

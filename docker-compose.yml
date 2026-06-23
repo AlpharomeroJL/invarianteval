@@ -1,0 +1,68 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      INVARIANTEVAL_DB: /data/invarianteval.db
+      INVARIANTEVAL_SECRET: dev-secret
+    volumes:
+      - .:/app
+      - api_data:/data
+    working_dir: /app
+    command: >
+      sh -c "pip install -e '.[platform]' &&
+             invarianteval server init &&
+             invarianteval server run --host 0.0.0.0 --port 8000"
+
+  worker:
+    build: .
+    depends_on:
+      - api
+    environment:
+      INVARIANTEVAL_DB: /data/invarianteval.db
+    volumes:
+      - .:/app
+      - api_data:/data
+    working_dir: /app
+    command: >
+      sh -c "pip install -e '.[platform]' && python -m worker.main"
+
+  web:
+    image: node:20-alpine
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./web:/web
+    working_dir: /web
+    environment:
+      VITE_API_URL: http://localhost:8000
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    depends_on:
+      - api
+
+  example:
+    build: .
+    depends_on:
+      - ollama
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: >
+      sh -c "pip install -e . &&
+        invarianteval run examples/fire-inspection-extraction/suite.yaml
+          --provider fixture
+          --fixtures examples/fire-inspection-extraction/fixtures/good"
+
+volumes:
+  ollama_data:
+  api_data:

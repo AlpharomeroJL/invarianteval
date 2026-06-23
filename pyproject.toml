@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "invarianteval"
+version = "0.2.0"
+description = "Derived safety-invariant eval gate for high-stakes structured AI"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "Josef D. Long" }]
+keywords = ["eval", "llm", "safety", "invariants", "provenance", "ci"]
+dependencies = [
+  "pydantic>=2.0",
+  "typer>=0.12",
+  "pyyaml>=6.0",
+  "httpx>=0.27",
+  "jinja2>=3.1",
+  "jsonschema>=4.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.4"]
+platform = [
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "sqlalchemy>=2.0",
+  "python-jose[cryptography]>=3.3",
+  "python-multipart>=0.0.9",
+]
+deepeval = ["deepeval>=0.21"]
+all = ["invarianteval[dev,platform,deepeval]"]
+
+[project.scripts]
+invarianteval = "invarianteval.cli:app"
+
+[project.entry-points.pytest11]
+invarianteval = "pytest_invarianteval.plugin"
+
+[tool.hatch.build.targets.wheel]
+packages = ["invarianteval", "pytest_invarianteval", "deepeval_bridge", "server", "worker"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"invarianteval/report.py" = ["E501"]
+"invarianteval/cli.py" = ["E501", "E402"]
+"invarianteval/core/runner.py" = ["E501"]
+"invarianteval/providers/openai.py" = ["E501"]
+"invarianteval/assertions/equivalence.py" = ["E501"]
+"invarianteval/assertions/invariants.py" = ["E501"]
+"server/**" = ["E501"]
+"deepeval_bridge/**" = ["E501"]
+"tests/platform/**" = ["E501"]
+"pytest_invarianteval/__init__.py" = ["F403"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/unit", "tests/integration"]
+markers = [
+  "ollama: live Ollama integration (local only)",
+  "invarianteval(suite, case_id, fixtures): run invariant eval gate for a case",
+  "platform: requires invarianteval[platform] (server, worker, auth)",
+]

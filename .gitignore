@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.ruff_cache/
+.pytest_cache/
+
+# Local runs and reports
+runs/
+/report.html
+
+# Platform / local dev
+*.db
+.env
+.env.local
+invarianteval.db
+
+# Web dashboard
+web/node_modules/
+web/dist/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

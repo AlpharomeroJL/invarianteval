@@ -1,0 +1,9 @@
+{
+  "panel_model": "ABC-100",
+  "device_status": "operational",
+  "devices": [
+    { "device_id": "101", "model_family": "XF-200" },
+    { "device_id": "102", "model_family": "XF-200" }
+  ],
+  "notes": "Routine quarterly check."
+}

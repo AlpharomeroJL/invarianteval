@@ -1,0 +1,23 @@
+{
+  "model_parsed": {
+    "panel_model": "MNO-500",
+    "devices": [
+      { "device_id": "301", "model_family": "RV-600" }
+    ]
+  },
+  "raw": "{\"panel_model\": \"MNO-500\"}",
+  "final_output": {
+    "panel_model": "MNO-500",
+    "device_status": "operational",
+    "devices": [
+      { "device_id": "301", "model_family": "RV-600" }
+    ]
+  },
+  "human_confirmed": {},
+  "model": "qwen2.5:7b",
+  "provider": "fixture",
+  "input_tokens": 92,
+  "output_tokens": 32,
+  "latency_ms": 700,
+  "cost_usd": 0.0
+}
