@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/demo.svg" alt="InvariantEval blocking a regression: the good run passes, then the model auto-fills a locked field and the gate exits non-zero" width="720">
+  <img src="docs/demo.gif" alt="InvariantEval blocking a regression: the good run passes, then the model auto-fills a locked field and the gate exits non-zero" width="720">
 </p>
 
 ## The problem, in one paragraph
