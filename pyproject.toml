@@ -11,12 +11,6 @@ license = { text = "MIT" }
 requires-python = ">=3.11"
 authors = [{ name = "Josef D. Long" }]
 keywords = ["eval", "llm", "safety", "invariants", "provenance", "ci"]
-
-[project.urls]
-Homepage = "https://github.com/AlpharomeroJL/invarianteval"
-Repository = "https://github.com/AlpharomeroJL/invarianteval"
-Documentation = "https://github.com/AlpharomeroJL/invarianteval#readme"
-Issues = "https://github.com/AlpharomeroJL/invarianteval/issues"
 dependencies = [
   "pydantic>=2.0",
   "typer>=0.12",
@@ -25,6 +19,12 @@ dependencies = [
   "jinja2>=3.1",
   "jsonschema>=4.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/AlpharomeroJL/invarianteval"
+Repository = "https://github.com/AlpharomeroJL/invarianteval"
+Documentation = "https://github.com/AlpharomeroJL/invarianteval#readme"
+Issues = "https://github.com/AlpharomeroJL/invarianteval/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "ruff>=0.4"]
@@ -36,10 +36,12 @@ platform = [
   "python-multipart>=0.0.9",
 ]
 deepeval = ["deepeval>=0.21"]
-all = ["invarianteval[dev,platform,deepeval]"]
+mcp = ["mcp>=1.2.0"]
+all = ["invarianteval[dev,platform,deepeval,mcp]"]
 
 [project.scripts]
 invarianteval = "invarianteval.cli:app"
+invarianteval-mcp = "invarianteval.mcp.__main__:main"
 
 [project.entry-points.pytest11]
 invarianteval = "pytest_invarianteval.plugin"
@@ -73,4 +75,5 @@ markers = [
   "ollama: live Ollama integration (local only)",
   "invarianteval(suite, case_id, fixtures): run invariant eval gate for a case",
   "platform: requires invarianteval[platform] (server, worker, auth)",
+  "mcp: requires invarianteval[mcp]",
 ]

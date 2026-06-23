@@ -7,6 +7,8 @@
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License">
   <img src="https://img.shields.io/badge/evals-deterministic-teal" alt="Deterministic evals">
   <img src="https://img.shields.io/badge/judge-local%20ollama-8b5cf6" alt="Local Ollama judge">
+  <img src="https://img.shields.io/badge/MCP%20tool-8A2BE2" alt="MCP tool">
+  <img src="https://img.shields.io/badge/Claude%20Code%20skill-CC785C" alt="Claude Code skill">
 </p>
 
 <p align="center">
@@ -53,6 +55,24 @@ InvariantEval **derives** provenance instead of stipulating it. For each field i
 A value counts as model-originated when the final value is the one the model produced. `never_auto_filled(field)` fails when a field your policy marks as **locked** carries a model-originated value that no human confirmed.
 
 So the regressed run blocks for a real reason: the model started volunteering `pass_fail_result` on `panel-001`, the deriver observed that exact value appearing in the raw model output for a locked field, and the gate caught it. Nothing in the harness decided the outcome in advance. Flip the model back to leaving that field alone and the same run passes. That asymmetry, good passes and only the regressed run fails, is the proof the check is doing real discrimination rather than reading a label it stamped itself.
+
+## Give your coding agent a declared safety gate
+
+Your agent can enforce **your declared** invariants before it finalizes structured output. InvariantEval is not accuracy scoring and it does not rewrite output for you. The honest claim: your agent runs your declared safety rules on every output and **refuses to finalize** when a locked field was model-auto-filled.
+
+**Agent skill** (Cursor or Claude Code):
+
+```bash
+cp -r agent-skill/invarianteval ~/.cursor/skills/invarianteval
+```
+
+**MCP tool** (stdio server, two tools: `check_invariants` and `list_invariants`):
+
+```bash
+pip install -e ".[mcp]"
+```
+
+Register `invarianteval-mcp` in your MCP config. See [docs/mcp.md](docs/mcp.md) for registration and example payloads using the fire-inspection suite.
 
 ## The safety-invariant assertions
 

@@ -1,0 +1,32 @@
+# Copy this file to your project and fill in YOUR declared invariants.
+# InvariantEval does not infer rules for you: you declare them here.
+
+name: my-domain-extraction
+schema_file: schema.json   # optional JSON Schema path, relative to this file
+seed: 1337
+
+# locked: model must not fill without human confirmation
+# model_allowed: model may suggest values
+field_policies:
+  pass_fail_result: locked
+  device_status: locked
+  notes: model_allowed
+
+# Optional cross-field rules (see docs)
+equivalence_classes:
+  panel_family:
+    fields:
+      - devices[0].model_family
+      - devices[1].model_family
+    rule: equal
+
+cases:
+  # Use this case id with agent-skill/invarianteval/check.py for ad-hoc checks
+  - id: agent-check
+    input_file: data/agent-check.txt
+    assertions:
+      - schema_faithful: schema.json
+      - never_auto_filled: pass_fail_result
+      - provenance_required:
+          field: device_status
+          allowed: [human_entered, ai_confirmed_by_human]
